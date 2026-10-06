@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>श्री गायत्री मंदिर नोखा</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="theme-color" content="#6E1423">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="गायत्री मंदिर">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --maroon:#6E1423;
+    --maroon-dark:#4A0E18;
+    --gold:#C99A3B;
+    --gold-light:#E8C579;
+    --cream:#FBF3E3;
+    --ink:#2A1810;
+    --tulsi:#4C6444;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  *{box-sizing:inherit;margin:0;padding:0;}
+  html{scroll-padding-top:56px;}
+  html,body{height:100%;}
+  body{
+    font-family:'Mukta',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.55;
+  }
+  h1,h2,h3{font-family:'Tiro Devanagari Hindi',serif;}
+  a{color:inherit;text-decoration:none;}
+
+  header.top{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:10;
+    background:var(--maroon);color:var(--cream);
+    padding:14px 18px;
+    display:flex;align-items:center;justify-content:space-between;
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
+  }
+  header.top .brand{font-family:'Tiro Devanagari Hindi',serif;font-size:1.15rem;}
+  nav.tabs{
+    display:flex;gap:6px;overflow-x:auto;
+    padding:8px 12px;background:var(--maroon-dark);
+  }
+  nav.tabs button{
+    flex:0 0 auto;
+    background:transparent;border:1px solid rgba(255,255,255,.35);
+    color:var(--cream);padding:7px 14px;border-radius:20px;
+    font-family:'Mukta',sans-serif;font-size:.92rem;
+  }
+  nav.tabs button.active{background:var(--gold);color:var(--maroon-dark);border-color:var(--gold);font-weight:600;}
+
+  .hero{
+    padding:34px 20px 28px;
+    background:linear-gradient(180deg,var(--maroon) 0%, var(--maroon-dark) 100%);
+    color:var(--cream);text-align:center;
+  }
+  .hero h1{font-size:1.9rem;margin-bottom:6px;}
+  .hero .slogan{color:var(--gold-light);font-size:1rem;margin-bottom:18px;}
+  .quick-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+  .qa-btn{
+    background:var(--gold);color:var(--maroon-dark);font-weight:600;
+    padding:11px 18px;border-radius:10px;font-size:.95rem;
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .qa-btn.outline{background:transparent;color:var(--cream);border:1.5px solid var(--gold-light);}
+
+  main{padding:0 0 40px;}
+  section{padding:30px 20px;max-width:640px;margin:0 auto;}
+  section h2{color:var(--maroon);font-size:1.4rem;margin-bottom:14px;border-bottom:2px solid var(--gold);padding-bottom:8px;}
+  section p{margin-bottom:12px;}
+
+  .card{
+    background:#fff;border:1px solid #ecdfc4;border-radius:12px;
+    padding:16px;margin-bottom:14px;
+  }
+  .card h3{color:var(--maroon-dark);font-size:1.05rem;margin-bottom:6px;}
+  .row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f0e6d0;}
+  .row:last-child{border-bottom:none;}
+  .row .icon{font-size:1.3rem;width:28px;text-align:center;}
+  .row a.link-btn{color:var(--maroon);font-weight:600;}
+
+  .donate-box{
+    background:var(--maroon);color:var(--cream);border-radius:14px;
+    padding:20px;text-align:center;
+  }
+  .donate-box .note{font-size:.88rem;color:var(--gold-light);margin-top:10px;}
+  .btn-primary{
+    display:inline-block;margin-top:14px;background:var(--gold);
+    color:var(--maroon-dark);font-weight:700;padding:12px 22px;border-radius:10px;
+  }
+
+  .copy-btn{
+    background:var(--maroon);color:var(--cream);border:none;
+    padding:8px 14px;border-radius:8px;font-size:.85rem;font-weight:600;
+    cursor:pointer;flex-shrink:0;
+  }
+  .copy-btn:active{background:var(--maroon-dark);}
+
+  .gallery-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+  }
+  .gallery-grid .ph{
+    aspect-ratio:1;border-radius:10px;
+    background:linear-gradient(135deg,#efe0bd,#e5cf9f);
+    display:flex;align-items:center;justify-content:center;
+    color:#a98b4f;font-size:1.8rem;border:1px dashed #cbb073;
+  }
+
+  .event-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid #f0e6d0;}
+  .event-item:last-child{border-bottom:none;}
+  .event-date{
+    flex:0 0 58px;background:var(--maroon);color:var(--cream);
+    border-radius:10px;text-align:center;padding:8px 4px;font-family:'Tiro Devanagari Hindi',serif;
+  }
+  .event-date .d{font-size:1.3rem;font-weight:700;line-height:1;}
+  .event-date .m{font-size:.72rem;color:var(--gold-light);}
+  .event-body h3{font-size:1rem;margin-bottom:3px;}
+  .event-body p{margin:0;font-size:.88rem;color:#7a6a52;}
+
+  .wa-channel-card{
+    background:linear-gradient(135deg,#075E54,#128C7E);border-radius:14px;
+    padding:16px;color:#fff;
+  }
+  .wa-channel-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+  .wa-channel-icon{
+    background:#25D366;border-radius:50%;width:38px;height:38px;flex:0 0 38px;
+    display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+  }
+  .wa-channel-title{font-weight:700;font-size:1rem;}
+  .wa-channel-sub{font-size:.82rem;color:#d9f2ec;margin-top:2px;}
+  .wa-channel-btn{
+    display:block;text-align:center;background:#25D366;color:#fff;font-weight:700;
+    padding:11px;border-radius:10px;font-size:.92rem;
+  }
+
+  .order-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #f0e6d0;}
+  .order-item:last-child{border-bottom:none;}
+  .order-item .oi-icon{font-size:1.4rem;width:34px;text-align:center;}
+  .order-item .oi-name{flex:1;font-weight:600;}
+  .order-item .oi-price{color:#8a7a63;font-size:.82rem;}
+  .qty-ctrl{display:flex;align-items:center;gap:8px;}
+  .qty-btn{
+    width:28px;height:28px;border-radius:7px;border:1px solid var(--gold);
+    background:#fff;color:var(--maroon);font-weight:700;font-size:1rem;
+  }
+  .qty-val{min-width:18px;text-align:center;font-weight:700;}
+  .form-field{margin-bottom:12px;}
+  .form-field label{display:block;font-size:.85rem;color:#6a5a44;margin-bottom:5px;font-weight:600;}
+  .form-field input,.form-field textarea{
+    width:100%;padding:10px 12px;border:1.5px solid #e0d0b0;border-radius:9px;
+    font-family:'Mukta',sans-serif;font-size:.95rem;background:#fff;color:var(--ink);
+  }
+  .design-card{
+    background:linear-gradient(135deg,#8B0000,#CC3300);border-radius:14px;
+    padding:20px;color:#fff;text-align:center;
+  }
+  .design-card .dc-icon{font-size:2.2rem;margin-bottom:8px;}
+  .design-card h3{font-size:1.1rem;margin-bottom:6px;}
+  .design-card p{font-size:.88rem;color:#ffd9bd;margin-bottom:14px;}
+
+  footer{
+    text-align:center;padding:22px 16px;color:#8a7a63;font-size:.82rem;
+  }
+
+  #installBtn{
+    display:none;position:fixed;bottom:18px;left:50%;transform:translateX(-50%);
+    background:var(--tulsi);color:#fff;padding:11px 20px;border-radius:30px;
+    font-weight:600;box-shadow:0 4px 14px rgba(0,0,0,.25);border:none;z-index:20;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --cream:#1C1410; --ink:#EFE4D2;
+    }
+    body{background:var(--cream);color:var(--ink);}
+    .card{background:#2A2018;border-color:#4A3B28;}
+    .row{border-color:#3A2E20;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">श्री गायत्री मंदिर, नोखा</div>
+  <a href="tel:8210141579" aria-label="कॉल करें" style="font-size:1.3rem;">📞</a>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button data-tab="home" class="active">होम</button>
+  <button data-tab="events">कार्यक्रम</button>
+  <button data-tab="gallery">गैलरी</button>
+  <button data-tab="order">सामग्री ऑर्डर</button>
+  <button data-tab="design">डिज़ाइन</button>
+  <button data-tab="donate">दान</button>
+  <button data-tab="seva">सेवा</button>
+  <button data-tab="contact">संपर्क</button>
+</nav>
+
+<main>
+  <section id="home" class="tab-panel">
+    <div class="hero" style="margin:-30px -20px 0;border-radius:0 0 20px 20px;">
+      <h1>श्री गायत्री मंदिर नोखा</h1>
+      <p class="slogan">हम बदलेंगे युग बदलेगा, हम सुधरेंगे युग सुधरेगा</p>
+      <div class="quick-actions">
+        <a class="qa-btn" href="https://wa.me/918210141579" target="_blank">💬 WhatsApp</a>
+        <a class="qa-btn" href="tel:8210141579">📞 कॉल करें</a>
+        <button class="qa-btn outline" onclick="showTab('donate')">🙏 दान करें</button>
+      </div>
+    </div>
+
+    <div style="padding:26px 20px 0;max-width:640px;margin:0 auto;">
+      <div class="card">
+        <h3>गायत्री शक्ति पीठ के बारे में</h3>
+        <p>गायत्री शक्ति पीठ, नोखा, रोहतास (बिहार) में पंजीकृत एक धार्मिक ट्रस्ट है। वर्तमान में यहाँ श्री गायत्री मंदिर का निर्माण चल रहा है। ट्रस्ट गायत्री परिवार के आदर्शों के प्रचार, सामूहिक रुद्राभिषेक, दीप यज्ञ और गाँव-गाँव जनसंपर्क अभियान के माध्यम से समाज सेवा में सक्रिय है।</p>
+      </div>
+      <div class="card">
+        <h3>आगामी कार्यक्रम</h3>
+        <p style="color:#8a7a63;">आगामी उत्सवों व अनुष्ठानों की पूरी सूची देखें।</p>
+        <button class="btn-primary" style="margin-top:6px;padding:9px 18px;font-size:.9rem;" onclick="showTab('events')">कार्यक्रम देखें</button>
+      </div>
+
+      <div class="wa-channel-card">
+        <div class="wa-channel-row">
+          <div class="wa-channel-icon">📢</div>
+          <div>
+            <div class="wa-channel-title">WhatsApp Channel</div>
+            <div class="wa-channel-sub">कार्यक्रम, सुविचार व पूजा सामग्री की जानकारी पाएं</div>
+          </div>
+        </div>
+        <div class="wa-channel-actions">
+          <a class="wa-channel-btn" href="https://whatsapp.com/channel/0029Vb7zditGJP88EPIsDx21" target="_blank">📲 Channel खोलें</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="events" class="tab-panel" hidden>
+    <h2>कार्यक्रम</h2>
+    <div class="card">
+      <div class="event-item">
+        <div class="event-date"><div class="d">--</div><div class="m">माह</div></div>
+        <div class="event-body">
+          <h3>मूर्ति स्थापना महोत्सव</h3>
+          <p>तिथि जल्द घोषित की जाएगी</p>
+        </div>
+      </div>
+      <div class="event-item">
+        <div class="event-date"><div class="d">--</div><div class="m">माह</div></div>
+        <div class="event-body">
+          <h3>सामूहिक रुद्राभिषेक व दीप यज्ञ</h3>
+          <p>गाँव-गाँव जनसंपर्क अभियान के अंतर्गत</p>
+        </div>
+      </div>
+      <p style="color:#8a7a63;font-size:.85rem;margin-top:10px;">नई तिथियाँ जुड़ने पर यह सूची अपडेट होगी।</p>
+    </div>
+  </section>
+
+  <section id="gallery" class="tab-panel" hidden>
+    <h2>गैलरी</h2>
+    <div class="gallery-grid">
+      <div class="ph">🛕</div>
+      <div class="ph">🕉️</div>
+      <div class="ph">🪔</div>
+      <div class="ph">🙏</div>
+      <div class="ph">📿</div>
+      <div class="ph">🔥</div>
+    </div>
+    <p style="color:#8a7a63;font-size:.85rem;margin-top:14px;">यह डेमो चित्र हैं। असली फोटो जोड़ने के लिए इस फ़ाइल में इन <code>.ph</code> ब्लॉक की जगह अपनी images की <code>&lt;img&gt;</code> टैग लगाएँ।</p>
+  </section>
+
+  <section id="order" class="tab-panel" hidden>
+    <h2>पूजा सामग्री ऑर्डर</h2>
+    <div class="card">
+      <p style="color:#8a7a63;font-size:.88rem;margin-bottom:4px;">सामग्री चुनें, मात्रा तय करें — आपका ऑर्डर WhatsApp पर भेज दें, हम डिलीवरी का इंतज़ाम कर देंगे।</p>
+    </div>
+    <div class="card" id="orderItemsCard">
+      <div class="order-item" data-item="अगरबत्ती" data-price="25" data-unit="पैकेट">
+        <span class="oi-icon">🕯️</span>
+        <div class="oi-name">अगरबत्ती<div class="oi-price">₹25 / पैकेट</div></div>
+        <div class="qty-ctrl"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-item="सिंदूर" data-price="15" data-unit="50g">
+        <span class="oi-icon">🔴</span>
+        <div class="oi-name">सिंदूर<div class="oi-price">₹15 / 50g</div></div>
+        <div class="qty-ctrl"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-item="रोली/कुमकुम" data-price="12" data-unit="50g">
+        <span class="oi-icon">🟠</span>
+        <div class="oi-name">रोली/कुमकुम<div class="oi-price">₹12 / 50g</div></div>
+        <div class="qty-ctrl"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-item="सरसों तेल" data-price="30" data-unit="100ml">
+        <span class="oi-icon">🫙</span>
+        <div class="oi-name">सरसों तेल<div class="oi-price">₹30 / 100ml</div></div>
+        <div class="qty-ctrl"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-item="चंदन पाउडर" data-price="30" data-unit="50g">
+        <span class="oi-icon">🟤</span>
+        <div class="oi-name">चंदन पाउडर<div class="oi-price">₹30 / 50g</div></div>
+        <div class="qty-ctrl"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-item="कपूर" data-price="20" data-unit="25g">
+        <span class="oi-icon">⬜</span>
+        <div class="oi-name">कपूर<div class="oi-price">₹20 / 25g</div></div>
+        <div class="qty-ctrl"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-item="हल्दी" data-price="18" data-unit="100g">
+        <span class="oi-icon">🟡</span>
+        <div class="oi-name">हल्दी<div class="oi-price">₹18 / 100g</div></div>
+        <div class="qty-ctrl"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+      </div>
+      <div class="order-item" data-item="अक्षत" data-price="15" data-unit="250g">
+        <span class="oi-icon">🌾</span>
+        <div class="oi-name">अक्षत<div class="oi-price">₹15 / 250g</div></div>
+        <div class="qty-ctrl"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-val">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="form-field"><label>आपका नाम</label><input type="text" id="orderName" placeholder="पूरा नाम"></div>
+      <div class="form-field"><label>मोबाइल नंबर</label><input type="tel" id="orderPhone" placeholder="10 अंकों का नंबर"></div>
+      <div class="form-field"><label>पता / गाँव</label><textarea id="orderAddress" rows="2" placeholder="डिलीवरी का पता"></textarea></div>
+      <button class="btn-primary" style="width:100%;text-align:center;" onclick="submitOrder()">📲 WhatsApp पर ऑर्डर भेजें</button>
+    </div>
+  </section>
+
+  <section id="design" class="tab-panel" hidden>
+    <h2>डिज़ाइन</h2>
+    <div class="design-card">
+      <div class="dc-icon">🎨</div>
+      <h3>कार्ड व पोस्टर मेकर</h3>
+      <p>जन्मदिन, त्योहार व कार्यक्रम के लिए खुद सुंदर कार्ड और पोस्टर बनाएं — फोटो, टेक्स्ट, रंग सब कुछ अपनी पसंद से।</p>
+      <a class="btn-primary" href="card-maker.html" target="_blank">कार्ड मेकर खोलें</a>
+    </div>
+  </section>
+
+  <section id="donate" class="tab-panel" hidden>
+    <h2>दान करें</h2>
+    <div class="donate-box">
+      <h3 style="font-family:'Tiro Devanagari Hindi',serif;font-size:1.2rem;">मंदिर निर्माण में सहयोग करें</h3>
+      <p>आपका हर योगदान श्री गायत्री मंदिर के निर्माण और सेवा कार्यों में सहायक है।</p>
+      <a class="btn-primary" href="https://wa.me/918210141579?text=मुझे%20दान%20करने%20के%20लिए%20UPI%20QR%20कोड%20चाहिए" target="_blank">UPI QR के लिए WhatsApp करें</a>
+      <p class="note">UPI QR कोड जल्द उपलब्ध होगा — तब तक नीचे बैंक खाते में सीधे NEFT/IMPS से दान किया जा सकता है।</p>
+    </div>
+    <div class="card" style="margin-top:16px;">
+      <h3 style="font-family:'Tiro Devanagari Hindi',serif;font-size:1.2rem;">बैंक खाते में सीधे दान करें</h3>
+      <div class="row">
+        <span style="flex:1;">खाता धारक का नाम<br><strong id="bankName">Gayatri Shakti Pith</strong></span>
+        <button class="copy-btn" onclick="copyField('bankName')">कॉपी</button>
+      </div>
+      <div class="row">
+        <span style="flex:1;">खाता संख्या (A/C No.)<br><strong id="bankAcNo">579120110000448</strong></span>
+        <button class="copy-btn" onclick="copyField('bankAcNo')">कॉपी</button>
+      </div>
+      <div class="row">
+        <span style="flex:1;">IFSC कोड<br><strong id="bankIfsc">BKID0005791</strong></span>
+        <button class="copy-btn" onclick="copyField('bankIfsc')">कॉपी</button>
+      </div>
+      <div class="row" style="border-bottom:none;">
+        <span style="flex:1;">बैंक व शाखा<br><strong>Bank of India, Nokha Branch</strong></span>
+      </div>
+      <p id="copyMsg" style="display:none;color:var(--tulsi);font-size:.9rem;margin-top:8px;">✅ कॉपी हो गया</p>
+    </div>
+    <div class="card" style="margin-top:16px;">
+      <h3>ईंट-दान योजना</h3>
+      <p>निर्माण कार्य में ईंट-प्रायोजन के माध्यम से भी योगदान किया जा सकता है, जिसमें दानदाता का नाम अंकित किया जाता है। विवरण हेतु संपर्क करें।</p>
+    </div>
+  </section>
+
+  <section id="seva" class="tab-panel" hidden>
+    <h2>सेवा में जुड़ें</h2>
+    <div class="card">
+      <h3>स्वयंसेवक बनें</h3>
+      <p>श्रमदान, गाँव-गाँव जनसंपर्क अभियान, कार्यक्रम आयोजन व अन्य सेवा कार्यों में जुड़ने के लिए पंजीकरण करें।</p>
+      <a class="btn-primary" href="https://wa.me/918210141579?text=मैं%20सेवा%20में%20जुड़ना%20चाहता%20हूँ" target="_blank">WhatsApp से पंजीकरण करें</a>
+    </div>
+    <div class="card">
+      <h3>प्रवासी नोखावासी समूह</h3>
+      <p>बाहर रहने वाले नोखा के निवासियों के लिए एक समर्पित WhatsApp समूह है, जिससे वे मंदिर की गतिविधियों से जुड़े रह सकें।</p>
+    </div>
+  </section>
+
+  <section id="contact" class="tab-panel" hidden>
+    <h2>संपर्क करें</h2>
+    <div class="card">
+      <div class="row"><span class="icon">📞</span><a class="link-btn" href="tel:8210141579">8210141579</a></div>
+      <div class="row"><span class="icon">💬</span><a class="link-btn" href="https://wa.me/918210141579" target="_blank">WhatsApp: 8210141579</a></div>
+      <div class="row"><span class="icon">📞</span><a class="link-btn" href="tel:8538923577">8538923577 (द्वितीय)</a></div>
+      <div class="row"><span class="icon">💬</span><a class="link-btn" href="https://wa.me/918538923577" target="_blank">WhatsApp: 8538923577</a></div>
+      <div class="row"><span class="icon">✉️</span><a class="link-btn" href="mailto:gayatripithnokha@gmail.com">gayatripithnokha@gmail.com</a></div>
+      <div class="row"><span class="icon">📍</span><span>गायत्री नगर, वार्ड 22, नोखा, रोहतास, बिहार – 802215</span></div>
+      <div class="row"><span class="icon">👍</span><a class="link-btn" href="https://www.facebook.com/share/1E314TxQ9U/" target="_blank">श्री गायत्री मंदिर नोखा (Facebook)</a></div>
+      <div class="row"><span class="icon">📢</span><a class="link-btn" href="https://whatsapp.com/channel/0029Vb7zditGJP88EPIsDx21" target="_blank">श्री गायत्री मंदिर नोखा (WhatsApp Channel)</a></div>
+    </div>
+  </section>
+</main>
+
+<footer>श्री गायत्री मंदिर नोखा · हम बदलेंगे युग बदलेगा</footer>
+
+<button id="installBtn">📲 ऐप इंस्टॉल करें</button>
+
+<script>
+  function copyField(id){
+    var text = document.getElementById(id).textContent;
+    function showMsg(){
+      var msg = document.getElementById('copyMsg');
+      msg.style.display = 'block';
+      clearTimeout(window._copyMsgTimer);
+      window._copyMsgTimer = setTimeout(function(){ msg.style.display = 'none'; }, 2000);
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(showMsg).catch(function(){
+        fallbackCopy(text); showMsg();
+      });
+    } else {
+      fallbackCopy(text); showMsg();
+    }
+  }
+  function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try{ document.execCommand('copy'); }catch(e){}
+    document.body.removeChild(ta);
+  }
+
+  function changeQty(btn, delta){
+    var row = btn.closest('.order-item');
+    var val = row.querySelector('.qty-val');
+    var n = Math.max(0, parseInt(val.textContent, 10) + delta);
+    val.textContent = n;
+  }
+
+  function submitOrder(){
+    var rows = document.querySelectorAll('#orderItemsCard .order-item');
+    var lines = [];
+    rows.forEach(function(r){
+      var qty = parseInt(r.querySelector('.qty-val').textContent, 10);
+      if(qty > 0){
+        lines.push('• ' + r.dataset.item + ' x ' + qty + ' ' + r.dataset.unit + ' (₹' + (qty * r.dataset.price) + ')');
+      }
+    });
+    if(lines.length === 0){
+      alert('कृपया कम से कम एक सामग्री चुनें।');
+      return;
+    }
+    var name = document.getElementById('orderName').value || '-';
+    var phone = document.getElementById('orderPhone').value || '-';
+    var address = document.getElementById('orderAddress').value || '-';
+    var msg = '🙏 पूजा सामग्री ऑर्डर\n\nनाम: ' + name + '\nमोबाइल: ' + phone + '\nपता: ' + address + '\n\nसामग्री:\n' + lines.join('\n') + '\n\nजय माँ गायत्री 🕉️';
+    window.open('https://wa.me/918210141579?text=' + encodeURIComponent(msg), '_blank');
+  }
+
+  function showTab(name){
+    document.querySelectorAll('.tab-panel').forEach(function(s){s.hidden = (s.id !== name);});
+    document.querySelectorAll('#tabs button').forEach(function(b){b.classList.toggle('active', b.dataset.tab===name);});
+    window.scrollTo(0,0);
+  }
+  document.getElementById('tabs').addEventListener('click', function(e){
+    var btn = e.target.closest('button');
+    if(btn) showTab(btn.dataset.tab);
+  });
+
+  if('serviceWorker' in navigator){
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('service-worker.js').catch(function(){});
+    });
+  }
+
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault();
+    deferredPrompt = e;
+    document.getElementById('installBtn').style.display='block';
+  });
+  document.getElementById('installBtn').addEventListener('click', function(){
+    if(!deferredPrompt) return;
+    deferredPrompt.prompt();
+    deferredPrompt = null;
+    this.style.display='none';
+  });
+</script>
+</body>
+</html>
